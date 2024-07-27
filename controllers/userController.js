@@ -64,9 +64,11 @@ const isUserExist = async (req, res) => {
       });
 
       res.cookie("token", token, {
-        secure: process.env.NODE_ENV === "production", // Use secure cookies in production
-        sameSite: "Lax", // Can be 'Strict', 'Lax', or 'None'
-      });
+      httpOnly: false,   // If you want frontend access
+      secure: process.env.NODE_ENV === "production", // Set to true if HTTPS in production
+      sameSite: "None", // Allows cross-origin cookies
+    });
+
 
       return res.status(200).json({
         success: true,
