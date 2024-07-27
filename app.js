@@ -11,7 +11,7 @@ const app = express();
 const server = http.createServer(app);
 const io = socketIo(server, {
   cors: {
-    origin: '*',
+    origin: "https://asr-jnanaena-kinchit-vaakyam-paryaaptam.vercel.app",
     methods: ["GET", "POST"],
     credentials: true,
   },
@@ -21,7 +21,7 @@ const io = socketIo(server, {
 connectDB();
 
 // Middleware setup
-app.use(cors({ origin: '*', credentials: true }));
+app.use(cors({ origin: "https://asr-jnanaena-kinchit-vaakyam-paryaaptam.vercel.app/", credentials: true }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
